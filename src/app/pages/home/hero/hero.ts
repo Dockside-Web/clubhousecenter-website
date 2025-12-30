@@ -16,7 +16,6 @@ export class HeroComponent implements OnInit {
 
   property: Property | null = null;
   heroImage = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop';
-  availableUnits = 0;
 
   videoVisible = true;
 
@@ -38,7 +37,6 @@ export class HeroComponent implements OnInit {
   ngOnInit(): void {
     this.propertyService.getProperty().subscribe(property => {
       this.property = property;
-      this.availableUnits = property.availableUnits.filter(unit => unit.availability === 'Available').length;
       const heroImg = property.images.find(img => img.isHero);
       if (heroImg) {
         this.heroImage = heroImg.url;

@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .location-section {
   padding: 3rem 0;
   background-color: white;
@@ -34,14 +39,6 @@
   flex-direction: column;
 }
 
-.info-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  margin-top: 0;
-  color: #1f2937;
-}
-
 .info-description {
   color: #4b5563;
   margin-bottom: 1rem;
@@ -49,7 +46,7 @@
 }
 
 .features-list {
-  margin-top: 1.5rem;
+  margin-top: .5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -107,6 +104,43 @@
   min-height: 380px;
 }
 
+.transportation-table {
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.transportation-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.transportation-table th {
+  background-color: #1e293b;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transportation-table td {
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transportation-table tr:last-child td {
+  border-bottom: none;
+}
+
+.transportation-table tr:hover {
+  background-color: #f9fafb;
+}
+
 @media (max-width: 767px) {
   .container {
     padding: 0 1rem;
@@ -123,5 +157,14 @@
 
   .content-grid {
     gap: 1.5rem;
+  }
+
+  .transportation-table {
+    font-size: 0.875rem;
+  }
+
+  .transportation-table th,
+  .transportation-table td {
+    padding: 0.5rem;
   }
 }
