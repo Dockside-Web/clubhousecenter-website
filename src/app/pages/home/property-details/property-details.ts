@@ -16,48 +16,56 @@ import { LucideIconsModule } from '../../../lucide.module';
 })
 export class PropertyDetailsComponent implements OnInit {
 
-  units = [
+  specifications = [
     {
-      floorUnitNumber: "1st Floor - 350 E1",
-      use: "Industrial",
-      size: 12000,
-      rate: 24,
-      status: "AVAILABLE",
-      rowClass: "table-row available",
-      statusClass: "status-available",
-      expanded: false
+      label: "Building Size",
+      value: "378,000 Sq. Ft."
     },
     {
-      floorUnitNumber: "1st Floor - Ste J",
-      use: "Office",
-      size: 45000,
-      rate: 13,
-      status: "AVAILABLE",
-      rowClass: "table-row available",
-      statusClass: "status-available",
-      expanded: false
+      label: "Lot Size",
+      value: "20 AC"
     },
     {
-      floorUnitNumber: "1st Floor - M",
-      use: "Office",
-      size: 81000,
-      rate: 13,
-      status: "COMING SOON",
-      rowClass: "table-row coming-soon",
-      statusClass: "status-coming-soon",
-      expanded: false
+      label: "Year Built",
+      value: "1969"
     },
     {
-      floorUnitNumber: "2nd Floor - Ste 227",
-      use: "Office",
-      size: 45000,
-      rate: 13,
-      status: "AVAILABLE",
-      rowClass: "table-row available",
-      statusClass: "status-available",
-      expanded: false
+      label: "Year Last Renovated",
+      value: "2004"
+    },
+    {
+      label: "Construction",
+      value: "Masonry"
+    },
+    {
+      label: "Sprinkler System",
+      value: "Wet"
+    },
+    {
+      label: "Water",
+      value: "City"
+    },
+    {
+      label: "Sewer",
+      value: "City"
+    },
+    {
+      label: "Heating",
+      value: "Gas"
+    },
+    {
+      label: "Gas",
+      value: "Natural"
+    },
+    {
+      label: "Power Supply",
+      value: "Amps: 6000; Volts: 277-48; Phase: 3"
+    },
+    {
+      label: "Zoning",
+      value: "MLIM (Manufacturing Light Industrial Major)"
     }
-  ];
+  ]
 
   property: Property | null = null;
 

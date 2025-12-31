@@ -8,71 +8,36 @@
         <p class="info-description">
           Clubhouse Center is a premium Class A office building offering
           modern amenities and flexible floor plans for businesses of all
-          sizes. Located in the heart of Baltimore's business district, this
+          sizes. Located in the heart of the Hunt Valley Business Community, this
           property provides an ideal setting for companies looking to
           establish or expand their presence.
         </p>
         <p class="info-description">
-          With 120,000 square feet of leasable space spread across 2
-          floors, Clubhouse Center combines functionality with elegant
-          design to create an impressive workspace environment.
+            
         </p>
-        <div class="building-info">
-          <lucide-icon name="warehouse" class="amenity-icon"></lucide-icon>
-          <span class="building-text">120,000 SF Total Area</span>
-        </div>
       </div>
 
       <div class="amenities-section">
         <h3 class="amenities-title">Building Amenities</h3>
         <ul class="amenities-list">
           <li><lucide-icon name="lock" class="amenity-icon"></lucide-icon> <span>24/7 Secure Building Access</span></li>
-          <li><lucide-icon name="layout-dashboard" class="amenity-icon"></lucide-icon> <span>Modernized Lobby and Common
-              Areas</span></li>
-          <li><lucide-icon name="circle-parking" class="amenity-icon"></lucide-icon> <span>On-site Covered
-              Parking</span></li>
-          <li><lucide-icon name="wifi" class="amenity-icon"></lucide-icon> <span>High-Speed Internet
-              Infrastructure</span></li>
           <li><lucide-icon name="user-check" class="amenity-icon"></lucide-icon> <span>On-site Property
               Management</span></li>
-          <li><lucide-icon name="fan" class="amenity-icon"></lucide-icon> <span>Energy-Efficient HVAC Systems</span>
-          </li>
+          <li><lucide-icon name="fan" class="amenity-icon"></lucide-icon> <span>Energy-Efficient HVAC Systems</span></li>
+          <li><lucide-icon name="circle-parking" class="amenity-icon"></lucide-icon> <span>On-site Parking</span></li>
         </ul>
       </div>
     </div>
-
-    <div class="availability-section">
-      <h3 class="availability-title">Current Availability</h3>
-      <div class="table-container">
-        <table class="availability-table enhanced">
-          <thead>
-            <tr>
-              <th>Space</th>
-              <th>Use</th>
-              <th>Size</th>
-              <th>Rate</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (unit of units; track unit)
-            {
-            <tr [ngClass]="unit.rowClass">
-              <td class="suite-number">{{ unit.floorUnitNumber }}</td>
-              <td class="use-type">{{ unit.use }}</td>
-              <td class="size">{{ unit.size | number:'1.0-0' }} SF</td>
-              <td class="rate">${{ unit.rate }} /SF/Year</td>
-              <td>
-                <span class="status-pill" [ngClass]="unit.statusClass">{{ unit.status }}</span>
-              </td>
-              <td class="arrow-cell" (click)="toggleExpand(unit)">
-                <lucide-icon name="chevron-down" [ngClass]="{ 'rotate': unit.expanded }"></lucide-icon>
-              </td>
-            </tr>
-            }
-          </tbody>
-        </table>
+    <div class="specs-container">
+      <h4 class="specs-title">Building Specifications</h4>
+      <div class="specs-grid">
+        @for(item of specifications; track item)
+        {
+        <div class="spec-item">
+          <span class="spec-label">{{ item.label }}</span>
+          <span class="spec-value">{{ item.value }}</span>
+        </div>
+        }
       </div>
     </div>
   </div>
