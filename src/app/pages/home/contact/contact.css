@@ -277,3 +277,10 @@
     padding: 1rem;
   }
 }
+
+.required-asterisk {
+  color: #ff0000;
+  /* Red color */
+  margin-left: 2px;
+  font-weight: bold;
+}

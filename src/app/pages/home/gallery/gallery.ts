@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 interface Image {
   id: number;
-  url: string;
+  image: string;
   alt: string;
   title: string;
 }
@@ -21,27 +21,51 @@ export class GalleryComponent {
   images: Image[] = [
     {
       id: 1,
-      url: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      alt: 'Modern office lobby with seating area',
-      title: 'Welcoming Lobby'
+      image: 'assets/images/Flag.jpg',
+      alt: 'Outside Office Building with Flag',
+      title: 'Outside of Office Space'
     },
     {
       id: 2,
-      url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Conference room with large windows',
-      title: 'Spacious Conference Room'
+      image: 'assets/images/Parking.jpg',
+      alt: 'Outside Warehouse Building with Parking Lot',
+      title: 'Parking All Around the Building'
     },
     {
       id: 3,
-      url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      alt: 'Open office workspace',
-      title: 'Open Floor Plan'
+      image: 'assets/images/Sign.jpg',
+      alt: 'Outside Office Building showing a sign',
+      title: 'Entrance to Parking Lot'
     },
     {
       id: 4,
-      url: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Building exterior view',
-      title: 'Exterior View'
+      image: 'assets/images/WarehouseDoors.jpg',
+      alt: 'Aerial View of Property Across from I83 Highway',
+      title: 'Warehouse Doors'
+    },
+    {
+      id: 5,
+      image: 'assets/images/Napa.jpg',
+      alt: 'Aerial View of Property Across from I83 Highway',
+      title: 'Outside of Retail Space'
+    },
+    {
+      id: 6,
+      image: 'assets/images/FrontDoor2.jpg',
+      alt: 'Aerial View of Property Across from I83 Highway',
+      title: 'More Office Space'
+    },
+    {
+      id: 7,
+      image: 'assets/images/DroneFar.jpg',
+      alt: 'Aerial View of Property Across from I83 Highway',
+      title: 'Aerial view of building and its surroundings'
+    },
+    {
+      id: 8,
+      image: 'assets/images/Parking2.jpg',
+      alt: 'Aerial View of Property Across from I83 Highway',
+      title: 'Office Space Parking'
     }
   ];
 
@@ -60,7 +84,4 @@ export class GalleryComponent {
   goToSlide(slideIndex: number): void {
     this.currentIndex = slideIndex;
   }
-
-
-
 }

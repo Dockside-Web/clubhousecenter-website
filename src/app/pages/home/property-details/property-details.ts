@@ -30,10 +30,6 @@ export class PropertyDetailsComponent implements OnInit {
       value: "1969"
     },
     {
-      label: "Year Last Renovated",
-      value: "2004"
-    },
-    {
       label: "Construction",
       value: "Masonry"
     },
@@ -42,15 +38,11 @@ export class PropertyDetailsComponent implements OnInit {
       value: "Wet"
     },
     {
-      label: "Water",
+      label: "Water & Sewer",
       value: "City"
     },
     {
-      label: "Sewer",
-      value: "City"
-    },
-    {
-      label: "Heating",
+      label: "Heating ",
       value: "Gas"
     },
     {
@@ -63,7 +55,7 @@ export class PropertyDetailsComponent implements OnInit {
     },
     {
       label: "Zoning",
-      value: "MLIM (Manufacturing Light Industrial Major)"
+      value: "MLIM (Manufacturing Light Industrial Moderate)"
     }
   ]
 
