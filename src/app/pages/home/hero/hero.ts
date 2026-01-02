@@ -20,11 +20,11 @@ export class HeroComponent implements OnInit {
   videoVisible = true;
 
   videoList: string[] = [
-    // 'assets/videos/Timeline123.mp4',
-    // 'assets/videos/Dji0032123.mp4',
-    'https://www.shutterstock.com/shutterstock/videos/3763398769/preview/stock-footage-aerial-view-of-logistics-warehouse-exterior-with-loading-platforms-truck-bays-at-distribution.webm',
-    'https://www.shutterstock.com/shutterstock/videos/1110917693/preview/stock-footage-modern-startup-centers-composed-of-glass-offices-within-a-contemporary-corporate-environment.webm',
-    'https://www.shutterstock.com/shutterstock/videos/1107867395/preview/stock-footage-aerial-view-of-solar-power-plant-with-blue-photovoltaic-panels-mounted-on-commercial-shopping-store.webm'
+    //'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop',
+    //'assets/videos/Dji0032123.mp4',
+    //'https://www.shutterstock.com/shutterstock/videos/3763398769/preview/stock-footage-aerial-view-of-logistics-warehouse-exterior-with-loading-platforms-truck-bays-at-distribution.webm',
+    //'https://www.shutterstock.com/shutterstock/videos/1110917693/preview/stock-footage-modern-startup-centers-composed-of-glass-offices-within-a-contemporary-corporate-environment.webm',
+    //'https://www.shutterstock.com/shutterstock/videos/1107867395/preview/stock-footage-aerial-view-of-solar-power-plant-with-blue-photovoltaic-panels-mounted-on-commercial-shopping-store.webm'
   ];
   currentVideoIndex = 0;
   videoA = this.videoList[0];
