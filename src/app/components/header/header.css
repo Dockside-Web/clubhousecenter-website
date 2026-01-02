@@ -80,7 +80,7 @@
 }
 
 .schedule-button {
-  background-color: #4CAF50;
+  background-color: #4E95D4;
   color: white;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -91,7 +91,7 @@
 }
 
 .schedule-button:hover {
-  background-color: #45a049;
+  background-color: #3d7fb9;
 }
 
 .nav-links {
