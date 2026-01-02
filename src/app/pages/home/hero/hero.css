@@ -1,5 +1,5 @@
 .hero-banner {
-  height: 75vh;
+  height: 50vh;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -37,7 +37,7 @@
 
 .hero-container {
   position: relative;
-  height: 75vh;
+  height: 50vh;
   width: 100%;
   /* Remove margin-top: 4rem; */
   overflow: hidden;
