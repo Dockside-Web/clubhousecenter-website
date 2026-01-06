@@ -51,11 +51,11 @@ export class PropertyDetailsComponent implements OnInit {
     },
     {
       label: "Power Supply",
-      value: "Amps: 6000; Volts: 277-48; Phase: 3"
+      value: "Amps: 6000; Volts: 277-480; Phase: 3"
     },
     {
       label: "Zoning",
-      value: "MLIM (Manufacturing Light Industrial Moderate)"
+      value: "MLIM"
     }
   ]
 
