@@ -1,11 +1,7 @@
-<div className="min-h-screen bg-white">
+<div class="min-h-screen bg-white">
   <app-header />
-  <main className="flex-grow">
-    <app-hero />
-    <app-location />
-    <app-property-details />
-    <app-gallery />
-    <app-contact />
+  <main class="flex-grow">
+    <router-outlet></router-outlet>
   </main>
   <app-footer />
 </div>

@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
-import { HeroComponent } from './pages/home/hero/hero';
-import { GalleryComponent } from './pages/home/gallery/gallery';
-import { ContactComponent } from './pages/home/contact/contact'
-import { PropertyDetailsComponent } from './pages/home/property-details/property-details';
-import { LocationComponent } from './pages/home/location/location';
 import { FooterComponent } from './components/footer/footer';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,18 +9,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { LucideIconsModule } from './lucide.module';
+import { filter } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     HeaderComponent,
-    HeroComponent,
-    PropertyDetailsComponent,
-    LocationComponent,
     FooterComponent,
-    GalleryComponent,
-    ContactComponent,
     CommonModule,
     RouterModule,
     MatTabsModule,
@@ -38,4 +31,17 @@ import { LucideIconsModule } from './lucide.module';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent { }
+export class AppComponent { 
+
+  //This is for scrolling to top of page when using routerLink to go to another page
+  private platformId = inject(PLATFORM_ID);
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        if (isPlatformBrowser(this.platformId)) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+  }
+}

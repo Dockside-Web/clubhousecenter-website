@@ -1,0 +1,115 @@
+<div class="listing-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <img [src]="heroImageUrl" alt="Production Studio Space" class="hero-image">
+        <div class="hero-content">
+            <h1 class="hero-title">1st Floor - Suite J</h1>
+            <p class="hero-subtitle">AVAILABLE NOW</p>
+        </div>
+    </section>
+
+    <!-- Media Gallery Section -->
+    <section class="media-gallery-section">
+        <div class="container">
+            <h2 class="section-title">Tour The Space</h2>
+            <div class="media-gallery">
+                @for (item of mediaGallery; track item.url) {
+                <div class="media-item" (click)="openLightbox(item)">
+                    @if (item.type === 'image') {
+                    <img [src]="item.url" [alt]="item.title" class="media-thumbnail">
+                    }
+                    @else if (item.type === 'video') {
+                    <video [src]="item.url + '#t=0.1'" class="media-thumbnail" preload="metadata" muted [attr.key]="currentIndex"></video>
+                    }
+
+                    @if (item.type === 'video') {
+                    <span class="video-badge">▶</span>
+                    <div class="media-overlay">
+                        <span class="media-type">▶</span>
+                        <span class="media-title">{{ item.title }}</span>
+                    </div>
+                    }
+                    @else if(item.type === 'image') {
+                    <div class="media-overlay">
+                        <span class="media-type">🔍</span>
+                        <span class="media-title">{{ item.title }}</span>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Specifications Section -->
+    <section class="specifications-section">
+        <div class="container">
+            <h2 class="section-title">Key Details</h2>
+            <div class="specs-grid">
+                @for (spec of specifications; track spec) {
+                <div class="spec-card">
+                    <span class="spec-label">{{ spec.label }}</span>
+                    <span class="spec-value">{{ spec.value }}</span>
+                </div>
+                }
+            </div>
+            <p class="disclaimer">Lease rate does not include utilities, property expenses, or building services.</p>
+        </div>
+    </section>
+
+    <!-- Space Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">Space Highlights</h2>
+            <div class="highlights-grid">
+                @for(highlight of highlights; track highlight) {
+                <div class="highlight-item">
+                    <span class="highlight-icon">✓</span>
+                    <span class="highlight-text">{{ highlight }}</span>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Component -->
+    <app-contact />
+
+
+    <!-- Lightbox Modal -->
+    @if (lightboxOpen) {
+    <div class="lightbox-modal" (click)="closeLightbox()">
+        <div class="lightbox-content" (click)="$event.stopPropagation()">
+            <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close">×</button>
+    
+            <!-- Previous Arrow -->
+            <button class="lightbox-nav lightbox-prev" (click)="previousMedia()" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+    
+            <!-- Next Arrow -->
+            <button class="lightbox-nav lightbox-next" (click)="nextMedia()" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+    
+            <div class="lightbox-media">
+                @if (selectedMedia?.type === 'video') {
+                <video [src]="selectedMedia?.url" autoplay controls muted playsinline preload="auto" class="lightbox-video">
+                    Your browser does not support the video tag.
+                </video>
+                }
+                @else if (selectedMedia?.type === 'image') {
+                <img [src]="selectedMedia?.url" [alt]="selectedMedia?.title" class="lightbox-image">
+                }
+            </div>
+            <p class="lightbox-title">{{ selectedMedia?.title }} ({{ currentIndex + 1 }} / {{ mediaGallery.length }})</p>
+        </div>
+    </div>
+    }
+</div>
