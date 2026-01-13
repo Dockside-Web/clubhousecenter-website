@@ -26,8 +26,7 @@ interface Specification {
   styleUrls: ['./listing.css']
 })
 export class ListingComponent implements OnInit {
-  heroVideoUrl = 'https://example.com/studio-hero.mp4';
-  heroImageUrl = 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1920';
+  heroImageUrl = 'assets/images/Renegade/IMG_1076.jpg';
   
   mediaGallery: MediaItem[] = [
     {
@@ -44,11 +43,6 @@ export class ListingComponent implements OnInit {
       type: 'video',
       url: '/assets/videos/Renegade/FrontDoor.mp4',
       title: 'Front Door Right'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/FrontDoor2.mp4',
-      title: 'Front Door Left'
     },
     {
       type: 'image',
