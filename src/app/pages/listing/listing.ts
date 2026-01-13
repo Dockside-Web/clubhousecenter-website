@@ -26,71 +26,40 @@ interface Specification {
   styleUrls: ['./listing.css']
 })
 export class ListingComponent implements OnInit {
-  heroImageUrl = 'assets/images/Renegade/IMG_1076.jpg';
+  heroImageUrl = 'assets/images/Renegade/Reception.jpg';
   
-  mediaGallery: MediaItem[] = [
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/attachment.jpg',
-      title: 'Floor Plan'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/RenegadeOutside.mp4',
-      title: 'Outside View'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/FrontDoor.mp4',
-      title: 'Front Door Right'
-    },
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/IMG_1076.jpg',
-      title: 'Reception Area'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/BackDoor2.mp4',
-      title: 'Back Doors'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/Studio.mp4',
-      title: 'Studio'
-    },
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/IMG_1064.jpg',
-      title: 'Studio'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/ConferenceRoom.mp4',
-      title: 'Conference Room'
-    },
-    {
-      type: 'video',
-      url: '/assets/videos/Renegade/Cubicals.mp4',
-      title: 'Cubicals'
-    },
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/IMG_1078.jpg',
-      title: 'Floor Plan'
-    },
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/IMG_1068.jpg',
-      title: 'Office Space'
-    },
-    {
-      type: 'image',
-      url: '/assets/images/Renegade/IMG_1080.jpg',
-      title: 'Kitchen'
-    },
-  
+  fileNames = [
+    'attachment.jpg',
+    'All Outside.mp4',
+    'Front Door Right.mp4',
+    'Front Door Left.mp4',
+    'Reception.jpg',
+    'Studio.mp4',
+    'Studio Back.jpg',
+    'Studio Front.jpg',
+    'Studio Electrical Panels.jpg',
+    'Walk In To Studio From Back Door.mp4',
+    'Conference Room.mp4',
+    'Cubicals.mp4',
+    'Cubicals.jpg',
+    'Office 1.mp4',
+    'Office 2.jpg',
+    'Back Door.mp4',
+    'Dressing Room.jpg',
+    'Kitchen 1.jpg',
+    'Kitchen 2.jpg',
+    'Storage Room.jpg',
+    'Bathroom 1.jpg',
+    'Bathroom 2.jpg',
+
   ];
+
+  mediaGallery: MediaItem[] = this.fileNames.map(name => ({
+    type: name.endsWith('.mp4') ? 'video' : 'image',
+    url: `/assets/${name.endsWith('.mp4') ? 'videos' : 'images'}/Renegade/${name}`,
+    title: name.split('.').slice(0, -1).join(' ') // Remove file extension for title
+  }));
+
 
   specifications: Specification[] = [
     { label: 'Size', value: '14,000 – 21,000 SF' },

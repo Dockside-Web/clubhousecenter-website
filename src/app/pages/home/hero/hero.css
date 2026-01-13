@@ -8,7 +8,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 4rem;
-  /* Move this from hero-container to hero-banner */
+  background-image: url('/assets/images/Flag.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
 }
 
 .hero-video {

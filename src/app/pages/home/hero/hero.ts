@@ -12,10 +12,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './hero.html',
   styleUrls: ['./hero.css']
 })
-export class HeroComponent implements OnInit {
+
+export class HeroComponent {
 
   property: Property | null = null;
-  heroImage = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop';
+  heroImageUrl = 'assets/images/Renegade/Reception.jpg';
 
   videoVisible = true;
 
@@ -34,25 +35,25 @@ export class HeroComponent implements OnInit {
 
   constructor(private propertyService: PropertyService) { }
 
-  ngOnInit(): void {
-    this.propertyService.getProperty().subscribe(property => {
-      this.property = property;
-      const heroImg = property.images.find(img => img.isHero);
-      if (heroImg) {
-        this.heroImage = heroImg.url;
-      }
-    });
+  // ngOnInit(): void {
+  //   this.propertyService.getProperty().subscribe(property => {
+  //     this.property = property;
+  //     const heroImg = property.images.find(img => img.isHero);
+  //     if (heroImg) {
+  //       this.heroImageUrl = heroImg.url;
+  //     }
+  //   });
 
     // Start video rotation
-    this.startVideoRotation();
-  }
+    // this.startVideoRotation();
+  // }
 
-  ngOnDestroy(): void {
-    // Clean up interval when component is destroyed
-    if (this.videoInterval) {
-      clearInterval(this.videoInterval);
-    }
-  }
+  // ngOnDestroy(): void {
+  //   // Clean up interval when component is destroyed
+  //   if (this.videoInterval) {
+  //     clearInterval(this.videoInterval);
+  //   }
+  // }
 
   // private startVideoRotation(): void {
   //   this.videoInterval = setInterval(() => {
@@ -61,17 +62,17 @@ export class HeroComponent implements OnInit {
   //   }, 5000); // Switch every 5 seconds
   // }
 
-  private startVideoRotation(): void {
-    this.videoInterval = setInterval(() => {
-      this.currentVideoIndex = (this.currentVideoIndex + 1) % this.videoList.length;
+  // private startVideoRotation(): void {
+  //   this.videoInterval = setInterval(() => {
+  //     this.currentVideoIndex = (this.currentVideoIndex + 1) % this.videoList.length;
 
-      if (this.showVideoA) {
-        this.videoB = this.videoList[this.currentVideoIndex];
-      } else {
-        this.videoA = this.videoList[this.currentVideoIndex];
-      }
+  //     if (this.showVideoA) {
+  //       this.videoB = this.videoList[this.currentVideoIndex];
+  //     } else {
+  //       this.videoA = this.videoList[this.currentVideoIndex];
+  //     }
 
-      this.showVideoA = !this.showVideoA; // toggle which video shows
-    }, 3000); // every 5 seconds
-  }
+  //     this.showVideoA = !this.showVideoA; // toggle which video shows
+  //   }, 3000); // every 5 seconds
+  // }
 }
