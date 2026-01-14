@@ -30,34 +30,34 @@ export class ListingComponent implements OnInit {
   
   fileNames = [
     'attachment.jpg',
-    'All Outside.mp4',
-    'Front Door Right.mp4',
-    'Front Door Left.mp4',
+    'AllOutside.mp4',
+    'FrontDoorRight.mp4',
+    'FrontDoorLeft.mp4',
     'Reception.jpg',
     'Studio.mp4',
-    'Studio Back.jpg',
-    'Studio Front.jpg',
-    'Studio Electrical Panels.jpg',
-    'Walk In To Studio From Back Door.mp4',
-    'Conference Room.mp4',
+    'StudioBack.jpg',
+    'StudioFront.jpg',
+    'StudioElectricalPanels.jpg',
+    'IntoStudioFromBackDoor.mp4',
+    'ConferenceRoom.mp4',
     'Cubicals.mp4',
     'Cubicals.jpg',
-    'Office 1.mp4',
-    'Office 2.jpg',
-    'Back Door.mp4',
-    'Dressing Room.jpg',
-    'Kitchen 1.jpg',
-    'Kitchen 2.jpg',
-    'Storage Room.jpg',
-    'Bathroom 1.jpg',
-    'Bathroom 2.jpg',
+    'Office1.mp4',
+    'Office2.jpg',
+    'BackDoor.mp4',
+    'DressingRoom.jpg',
+    'Kitchen1.jpg',
+    'Kitchen2.jpg',
+    'StorageRoom.jpg',
+    'Bathroom1.jpg',
+    'Bathroom2.jpg',
 
   ];
 
   mediaGallery: MediaItem[] = this.fileNames.map(name => ({
     type: name.endsWith('.mp4') ? 'video' : 'image',
     url: `/assets/${name.endsWith('.mp4') ? 'videos' : 'images'}/Renegade/${name}`,
-    title: name.split('.').slice(0, -1).join(' ') // Remove file extension for title
+    title: name.split('.').slice(0, -1).join(' ').replace(/([a-z])([A-Z])|([a-zA-Z])(\d)/g, '$1$3 $2$4') // Remove file extension for title
   }));
 
 
