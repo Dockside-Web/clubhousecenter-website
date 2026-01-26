@@ -21,8 +21,8 @@ export class LocationComponent implements OnInit {
     {
       transportation: 'MTA Light Rail',
       location: 'Gilroy Road Station',
-      time: '3 min walk',
-      distance: '0.2 mi'
+      time: '1 min walk',
+      distance: '0.0 mi'
     },
     {
       transportation: 'Commuter Rail',
