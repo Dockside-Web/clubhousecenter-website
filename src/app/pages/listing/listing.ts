@@ -29,29 +29,29 @@ export class ListingComponent implements OnInit {
   heroImageUrl = 'assets/images/Renegade/Reception.jpg';
   
   fileNames = [
-    'attachment.jpg',
+    'FloorPlanAll.jpg',
     'AllOutside.mp4',
     'FrontDoorRight.mp4',
     'FrontDoorLeft.mp4',
     'Reception.jpg',
-    'Studio.mp4',
-    'StudioBack.jpg',
-    'StudioFront.jpg',
-    'StudioElectricalPanels.jpg',
-    'IntoStudioFromBackDoor.mp4',
     'ConferenceRoom.mp4',
     'Cubicals.mp4',
     'Cubicals.jpg',
     'Office1.mp4',
     'Office2.jpg',
     'BackDoor.mp4',
-    'DressingRoom.jpg',
     'Kitchen1.jpg',
     'Kitchen2.jpg',
     'StorageRoom.jpg',
-    'Bathroom1.jpg',
-    'Bathroom2.jpg',
-
+    'BathroomOffice.jpg',
+    'FloorPlanStudio.png',
+    'Studio.mp4',
+    'StudioBack.jpg',
+    'StudioFront.jpg',
+    'DressingRoom.jpg',
+    'BathroomStudio.jpg',
+    'StudioElectricalPanels.jpg',
+    'IntoStudioFromBackDoor.mp4',
   ];
 
   mediaGallery: MediaItem[] = this.fileNames.map(name => ({
