@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LucideIconsModule } from '../../../lucide.module';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LucideIconsModule } from '../../lucide.module';
 
 @Component({
-  selector: 'app-contact',
+  selector: 'component-contact',
   standalone: true,
   templateUrl: './contact.html',
   styleUrls: ['./contact.css'],

@@ -12,6 +12,7 @@ import { LucideIconsModule } from './lucide.module';
 import { filter } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import { HeroComponent } from "./components/Hero/hero";
 
 @Component({
   selector: 'app-root',
@@ -26,8 +27,9 @@ import { PLATFORM_ID } from '@angular/core';
     MatIconModule,
     MatMenuModule,
     MatCardModule,
-    LucideIconsModule
-  ],
+    LucideIconsModule,
+    HeroComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

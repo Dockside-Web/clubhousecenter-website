@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ContactComponent } from '../home/contact/contact';
+import { ContactComponent } from '../../components/ContactForm/contact';
 
 interface MediaItem {
   type: 'video' | 'image';
@@ -25,7 +25,7 @@ interface Specification {
   ],
   styleUrls: ['./listing.css']
 })
-export class ListingComponent implements OnInit {
+export class ListingPage implements OnInit {
   heroImageUrl = 'assets/images/Renegade/Reception.jpg';
   
   fileNames = [

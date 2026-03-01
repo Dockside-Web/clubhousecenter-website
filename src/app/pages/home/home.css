@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.section {
+    padding: 3rem 0;
+    background-color: #f9fafb;
+}
+
+/* === Transportation Table === */
+.transportation-table {
+    margin-top: 2rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.transportation-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.transportation-table th {
+    background-color: #4395d4;
+    padding: 0.875rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transportation-table td {
+    padding: 0.875rem 1.25rem;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transportation-table tr:last-child td {
+    border-bottom: none;
+}
+
+.transportation-table tr:hover {
+    background-color: #f9fafb;
+}
+
+@media (max-width: 767px) {
+    .transportation-table {
+        font-size: 0.875rem;
+    }
+
+    .transportation-table th,
+    .transportation-table td {
+        padding: 0.625rem 0.75rem;
+    }
+}
+
+/* === Specs Container === */
+.specs-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.specs-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1.25rem 0;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.875rem;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem;
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+}
+
+.spec-label {
+    color: #6b7280;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.spec-value {
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* === Gallery === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+}
+
+.gallery-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+}
+
+.gallery-main {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .gallery-main {
+        height: 500px;
+    }
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.image-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-arrow.visible {
+    opacity: 1;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.nav-arrow-left {
+    left: 16px;
+}
+
+.nav-arrow-right {
+    right: 16px;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.75rem 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #2563eb;
+}
+
+.thumbnails-grid {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .thumbnails-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.thumbnail {
+    height: 96px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.65;
+}
+
+@media (min-width: 768px) {
+    .thumbnail {
+        height: 120px;
+    }
+}
+
+.thumbnail:hover {
+    opacity: 1;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #2563eb;
+}
