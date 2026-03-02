@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { LucideIconsModule } from '../../lucide.module';
 
 @Component({
@@ -7,7 +8,8 @@ import { LucideIconsModule } from '../../lucide.module';
   standalone: true,
   imports: [
     CommonModule,
-    LucideIconsModule
+    LucideIconsModule,
+    RouterModule
   ],
   templateUrl: './header.html',
   styleUrls: ['./header.css']

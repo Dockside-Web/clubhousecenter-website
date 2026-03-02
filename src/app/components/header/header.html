@@ -2,16 +2,16 @@
   <nav class="navbar">
     <div class="container">
       <div class="nav-brand">
-        <a href="/" class="logo-container">
+        <a routerLink="/" class="logo-container">
           <img [src]="websiteLogo" alt="Clubhouse Center Logo" />
         </a>
       </div>
       <ul class="nav-links" [class.open]="isMobileMenuOpen">
-        <li><a href="/">Home</a></li>
-        <li><a href="/location">Location</a></li>
-        <li><a href="/propertyOverview">Property Overview</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/location">Location</a></li>
+        <li><a routerLink="/propertyOverview">Property Overview</a></li>
         <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank">View Available Spaces</a></li>
-        <li><a href="/contact" class="cta-button">Contact Us</a></li>
+        <li><a routerLink="/contact" class="cta-button">Contact Us</a></li>
       </ul>
       <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
         <span></span>
