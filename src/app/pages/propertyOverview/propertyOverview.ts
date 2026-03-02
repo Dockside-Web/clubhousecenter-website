@@ -3,14 +3,14 @@ import { RouterModule } from '@angular/router';
 import {LucideIconsModule} from "../../lucide.module";
 
 @Component({
-  selector: 'app-property-details',
+  selector: 'app-property-overview',
   standalone: true,
-  templateUrl: './propertyDetails.html',
+  templateUrl: './propertyOverview.html',
   imports: [
     RouterModule,
     LucideIconsModule
   ],
-  styleUrls: ['./propertyDetails.css']
+  styleUrls: ['./propertyOverview.css']
 })
-export class PropertyDetailsPage {
+export class PropertyOverviewPage {
 }
