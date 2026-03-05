@@ -62,9 +62,9 @@ export class ListingPage implements OnInit {
 
 
   specifications: Specification[] = [
-    { label: 'Size', value: '14,000 – 21,000 SF' },
+    { label: 'Size', value: '13,500 – 24,300 SF' },
     { label: 'Term', value: '5–10 Years' },
-    { label: 'Rental Rate', value: '$9.00 / SF / Year' },
+    { label: 'Rental Rate', value: '$15.50 / SF / Year' },
     { label: 'Space Use', value: 'Office' },
     { label: 'Condition', value: 'Full Build-Out' },
   ];
