@@ -284,3 +284,30 @@
   margin-left: 2px;
   font-weight: bold;
 }
+
+.cf-turnstile {
+  padding-top: 15px;
+}
+
+.field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: #dc2626;
+  /* red-600 */
+}
+
+.input-error input,
+.input-error {
+  border-color: #dc2626 !important;
+}
+
+textarea.input-error {
+  border-color: #dc2626 !important;
+}
+
+.submit-hint {
+  font-size: 0.82rem;
+  color: #dc2626;
+  margin-bottom: 8px;
+}

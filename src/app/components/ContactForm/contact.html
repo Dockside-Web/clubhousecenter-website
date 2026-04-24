@@ -3,37 +3,43 @@
     <h2 class="section-title">Contact Us</h2>
     <div class="content-grid">
       <div class="form-section">
-        <form name="contact" class="contact-form" action="https://usebasin.com/f/82e26e6b9b12" method="POST" enctype="multipart/form-data">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" name="contact" class="contact-form"
+          action="https://usebasin.com/f/82e26e6b9b12" method="POST" enctype="multipart/form-data">
+
           <div class="form-grid">
             <div class="form-group">
               <label for="name" class="form-label">Name<span class="required-asterisk">*</span></label>
-              <div class="input-container">
+              <div class="input-container" [class.input-error]="getFieldError('name')">
                 <lucide-icon name="user" class="input-icon"></lucide-icon>
                 <input type="text" id="name" name="name" class="form-input" formControlName="name" required />
               </div>
+              <span class="field-error" *ngIf="getFieldError('name')">{{ getFieldError('name') }}</span>
             </div>
 
             <div class="form-group">
               <label for="email" class="form-label">Email<span class="required-asterisk">*</span></label>
-              <div class="input-container">
+              <div class="input-container" [class.input-error]="getFieldError('email')">
                 <lucide-icon name="mail" class="input-icon"></lucide-icon>
                 <input type="email" id="email" name="email" class="form-input" formControlName="email" required />
               </div>
+              <span class="field-error" *ngIf="getFieldError('email')">{{ getFieldError('email') }}</span>
             </div>
 
             <div class="form-group">
               <label for="phone" class="form-label">Phone<span class="required-asterisk">*</span></label>
-              <div class="input-container">
+              <div class="input-container" [class.input-error]="getFieldError('phone')">
                 <lucide-icon name="phone" class="input-icon"></lucide-icon>
                 <input type="tel" id="phone" name="phone" class="form-input" formControlName="phone" required />
               </div>
+              <span class="field-error" *ngIf="getFieldError('phone')">{{ getFieldError('phone') }}</span>
             </div>
 
             <div class="form-group">
               <label for="company" class="form-label">Company</label>
               <div class="input-container">
                 <lucide-icon name="building" class="input-icon"></lucide-icon>
-                <input type="text" id="company" name="company" class="form-input" formControlName="company" placeholder="Optional"/>
+                <input type="text" id="company" name="company" class="form-input" formControlName="company"
+                  placeholder="Optional" />
               </div>
             </div>
           </div>
@@ -41,16 +47,21 @@
           <div class="form-group full-width">
             <label for="message" class="form-label">Message<span class="required-asterisk">*</span></label>
             <textarea id="message" name="message" rows="4" class="form-textarea" formControlName="message"
+              [class.input-error]="getFieldError('message')"
               placeholder="Let us know which unit you're interested in, and any questions or preferred tour dates."
               required></textarea>
+            <span class="field-error" *ngIf="getFieldError('message')">{{ getFieldError('message') }}</span>
           </div>
 
-          <button type="submit" class="submit-button">
+          <div id="turnstile-container" class="cf-turnstile"></div>
+
+          <button type="submit" class="submit-button" [disabled]="!isFormValid">
             <lucide-icon name="send-horizontal" class="button-icon"></lucide-icon>
             Send Message
           </button>
         </form>
       </div>
+
       <div class="info-section">
         <p class="info-description">
           Interested in leasing space at Clubhouse Center? Contact our
