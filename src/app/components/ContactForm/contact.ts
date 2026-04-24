@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  AfterViewInit,
   NgZone,
   Inject,
   PLATFORM_ID,
@@ -21,8 +20,6 @@ declare global {
   }
 }
 
-let turnstileScriptLoaded = false;
-
 @Component({
   selector: 'component-contact',
   standalone: true,
@@ -30,10 +27,9 @@ let turnstileScriptLoaded = false;
   templateUrl: './contact.html',
   styleUrls: ['./contact.css'],
 })
-export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ContactComponent implements OnInit, OnDestroy {
   contactForm: FormGroup;
   private turnstileVerified = false;
-  private widgetId: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -52,43 +48,24 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
 
+    (window as any)['onTurnstileVerified'] = () => {
+      this.ngZone.run(() => {
+        this.turnstileVerified = true;
+      });
+    };
+
     if (!document.querySelector('script[src*="turnstile"]')) {
       const script = document.createElement('script');
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
     }
   }
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initTurnstile();
-    }
-  }
-
-  private initTurnstile() {
-    const checkAndRender = () => {
-      if (window.turnstile) {
-        this.widgetId = window.turnstile.render('#turnstile-container', {
-          sitekey: '0x4AAAAAADCoO1rXWiAtGRJ2',
-          callback: (token: string) => {
-            this.ngZone.run(() => {
-              this.turnstileVerified = true;
-            });
-          },
-          theme: 'light',
-        });
-      } else {
-        setTimeout(checkAndRender, 100);
-      }
-    };
-    checkAndRender();
-  }
-
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId) && window.turnstile && this.widgetId) {
-      window.turnstile.remove(this.widgetId);
+    if (isPlatformBrowser(this.platformId)) {
+      delete (window as any)['onTurnstileVerified'];
     }
   }
 
@@ -106,6 +83,10 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSubmit(event: Event) {
-    if (!this.isFormValid) return;
+    if (!this.isFormValid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+    (event.target as HTMLFormElement).submit();
   }
 }

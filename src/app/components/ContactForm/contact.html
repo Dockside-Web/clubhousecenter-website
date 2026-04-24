@@ -53,7 +53,14 @@
             <span class="field-error" *ngIf="getFieldError('message')">{{ getFieldError('message') }}</span>
           </div>
 
-          <div id="turnstile-container" class="cf-turnstile"></div>
+          <!-- Implicit render via data attributes — no JS render call needed -->
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADCoO1rXWiAtGRJ2" data-callback="onTurnstileVerified"
+            data-theme="light">
+          </div>
+
+          <p class="submit-hint" *ngIf="!isFormValid && contactForm.dirty">
+            Please complete all required fields above to continue.
+          </p>
 
           <button type="submit" class="submit-button" [disabled]="!isFormValid">
             <lucide-icon name="send-horizontal" class="button-icon"></lucide-icon>
