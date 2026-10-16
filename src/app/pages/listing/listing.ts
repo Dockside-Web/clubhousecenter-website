@@ -26,38 +26,37 @@ interface Specification {
   styleUrls: ['./listing.css']
 })
 export class ListingPage implements OnInit {
-  heroImageUrl = 'assets/images/Renegade/Reception.jpg';
-  
-  fileNames = [
-    'FloorPlanAll.jpg',
-    'AllOutside.mp4',
-    'FrontDoorRight.mp4',
-    'FrontDoorLeft.mp4',
-    'Reception.jpg',
-    'ConferenceRoom.mp4',
-    'Cubicals.mp4',
-    'Cubicals.jpg',
-    'Office1.mp4',
-    'Office2.jpg',
-    'BackDoor.mp4',
-    'Kitchen1.jpg',
-    'Kitchen2.jpg',
-    'StorageRoom.jpg',
-    'BathroomOffice.jpg',
-    'FloorPlanStudio.png',
-    'Studio.mp4',
-    'StudioBack.jpg',
-    'StudioFront.jpg',
-    'DressingRoom.jpg',
-    'BathroomStudio.jpg',
-    'StudioElectricalPanels.jpg',
-    'IntoStudioFromBackDoor.mp4',
+  // File name -> display title, in gallery order
+  media: [string, string][] = [
+    ['FloorPlanAll.jpg', 'Full Floor Plan'],
+    ['AllOutside.mp4', 'Exterior Walkaround'],
+    ['FrontDoorRight.mp4', 'Front Entrance (Right)'],
+    ['FrontDoorLeft.mp4', 'Front Entrance (Left)'],
+    ['Reception.jpg', 'Reception'],
+    ['ConferenceRoom.mp4', 'Conference Room'],
+    ['Cubicals.mp4', 'Cubicle Area'],
+    ['Cubicals.jpg', 'Cubicle Area'],
+    ['Office1.mp4', 'Private Office'],
+    ['Office2.jpg', 'Private Office'],
+    ['BackDoor.mp4', 'Back Entrance'],
+    ['Kitchen1.jpg', 'Kitchen'],
+    ['Kitchen2.jpg', 'Kitchen'],
+    ['StorageRoom.jpg', 'Storage Room'],
+    ['BathroomOffice.jpg', 'Office Restroom'],
+    ['FloorPlanStudio.png', 'Studio Floor Plan'],
+    ['Studio.mp4', 'Production Studio'],
+    ['StudioBack.jpg', 'Studio (Back)'],
+    ['StudioFront.jpg', 'Studio (Front)'],
+    ['DressingRoom.jpg', 'Dressing Room'],
+    ['BathroomStudio.jpg', 'Studio Restroom'],
+    ['StudioElectricalPanels.jpg', 'Studio Electrical Panels'],
+    ['IntoStudioFromBackDoor.mp4', 'Studio Entrance from Back Door'],
   ];
 
-  mediaGallery: MediaItem[] = this.fileNames.map(name => ({
+  mediaGallery: MediaItem[] = this.media.map(([name, title]) => ({
     type: name.endsWith('.mp4') ? 'video' : 'image',
     url: `/assets/${name.endsWith('.mp4') ? 'videos' : 'images'}/Renegade/${name}`,
-    title: name.split('.').slice(0, -1).join(' ').replace(/([a-z])([A-Z])|([a-zA-Z])(\d)/g, '$1$3 $2$4') // Remove file extension for title
+    title
   }));
 
 
@@ -84,17 +83,23 @@ export class ListingPage implements OnInit {
 
   ngOnInit(): void {}
 
+  private lastFocused: HTMLElement | null = null;
+
   openLightbox(item: MediaItem): void {
+    this.lastFocused = document.activeElement as HTMLElement;
     this.currentIndex = this.mediaGallery.indexOf(item);
     this.selectedMedia = item;
     this.lightboxOpen = true;
     document.body.style.overflow = 'hidden';
+    // Move keyboard focus into the lightbox once it renders
+    setTimeout(() => (document.querySelector('.lightbox-close') as HTMLElement)?.focus(), 0);
   }
 
   closeLightbox(): void {
     this.lightboxOpen = false;
     this.selectedMedia = null;
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = '';
+    this.lastFocused?.focus();
   }
 
   nextMedia(): void {

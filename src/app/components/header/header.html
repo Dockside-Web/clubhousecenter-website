@@ -1,19 +1,22 @@
 <header class="header">
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
       <div class="nav-brand">
-        <a routerLink="/" class="logo-container">
-          <img [src]="websiteLogo" alt="Clubhouse Center Logo" />
+        <a routerLink="/" class="logo-container" (click)="closeMobileMenu()">
+          <img [src]="websiteLogo" alt="Clubhouse Center home" width="236" height="50" />
         </a>
       </div>
-      <ul class="nav-links" [class.open]="isMobileMenuOpen">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/location">Location</a></li>
-        <li><a routerLink="/propertyOverview">Property Overview</a></li>
-        <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/">View Available Spaces</a></li>
-        <li><a routerLink="/contact" class="cta-button">Contact Us</a></li>
+      <ul id="main-nav-links" class="nav-links" [class.open]="isMobileMenuOpen">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Home</a></li>
+        <li><a routerLink="/location" routerLinkActive="active" (click)="closeMobileMenu()">Location</a></li>
+        <li><a routerLink="/property-overview" routerLinkActive="active" (click)="closeMobileMenu()">Property Overview</a></li>
+        <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank"
+            rel="noopener" (click)="closeMobileMenu()">View Available Spaces</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" class="cta-button" (click)="closeMobileMenu()">Contact Us</a></li>
       </ul>
-      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <button type="button" class="mobile-menu-toggle" (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen" aria-controls="main-nav-links"
+        [attr.aria-label]="isMobileMenuOpen ? 'Close menu' : 'Open menu'">
         <span></span>
         <span></span>
         <span></span>

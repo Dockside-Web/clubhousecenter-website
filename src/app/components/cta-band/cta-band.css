@@ -1,0 +1,113 @@
+.cta-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem 2.75rem;
+  border-radius: 16px;
+  background: var(--brand-navy);
+  color: white;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brick accent stripe on the left edge, echoing the logo */
+.cta-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--brand-brick);
+}
+
+.cta-eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F4B7A6;
+  margin-bottom: 0.4rem;
+}
+
+.cta-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.cta-description {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 36rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.cta-btn-primary {
+  background: white;
+  color: var(--brand-navy);
+}
+
+.cta-btn-primary:hover {
+  background: #e8eef6;
+}
+
+.cta-btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: white;
+}
+
+.cta-btn-outline:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem 2rem 2rem;
+  }
+
+  .cta-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-actions,
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

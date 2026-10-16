@@ -1,6 +1,7 @@
 <div class="min-h-screen bg-white">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <app-header />
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow" tabindex="-1">
     <app-hero />
     <router-outlet></router-outlet>
   </main>

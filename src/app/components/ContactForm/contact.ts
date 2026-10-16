@@ -1,5 +1,6 @@
 import {
   Component,
+  Input,
   OnInit,
   OnDestroy,
   NgZone,
@@ -28,6 +29,7 @@ declare global {
   styleUrls: ['./contact.css'],
 })
 export class ContactComponent implements OnInit, OnDestroy {
+  @Input() asPage = false; // true on the Contact page, where the title is shown in the page banner
   contactForm: FormGroup;
   private turnstileVerified = false;
 

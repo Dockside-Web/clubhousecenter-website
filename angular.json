@@ -31,6 +31,11 @@
                 "output": "/"
               },
               {
+                "glob": "favicon.svg",
+                "input": "src",
+                "output": "/"
+              },
+              {
                 "glob": "favicon-16x16.png",
                 "input": "src",
                 "output": "/"
@@ -47,6 +52,26 @@
               },
               {
                 "glob": "site.webmanifest",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-*.png",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "robots.txt",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "_redirects",
                 "input": "src",
                 "output": "/"
               }
@@ -71,7 +96,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
+                  "maximumWarning": "6kB",
                   "maximumError": "8kB"
                 }
               ],

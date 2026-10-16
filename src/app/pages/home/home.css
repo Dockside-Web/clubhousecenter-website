@@ -1,31 +1,53 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Extra top padding leaves room for the hero facts bar that overlaps this section */
+.section {
+    padding: 6rem 0 2rem;
+    background-color: #f9fafb;
 }
 
-.section {
-    padding: 3rem 0;
-    background-color: #f9fafb;
+.home-block + .home-block {
+    margin-top: 2.5rem;
+}
+
+.block-heading {
+    margin-bottom: 1.25rem;
+}
+
+.block-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+    .section {
+        padding-top: 8rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .block-title {
+        font-size: 1.4rem;
+    }
 }
 
 /* === Transportation Table === */
 .transportation-table {
-    margin-top: 2rem;
     overflow-x: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
 }
 
 .transportation-table table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     overflow: hidden;
 }
 
 .transportation-table th {
-    background-color: #4395d4;
+    background-color: var(--brand-blue-dark);
     padding: 0.875rem 1.25rem;
     text-align: left;
     font-weight: 600;
@@ -58,60 +80,178 @@ body {
     }
 }
 
-/* === Specs Container === */
-.specs-container {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+/* Phones: stack each row into a small card instead of squeezing 4 columns */
+@media (max-width: 599px) {
+    .transportation-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+    }
+
+    .transportation-table tr {
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .transportation-table tr:last-child {
+        border-bottom: none;
+    }
+
+    .transportation-table td {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.25rem 1rem;
+        border-bottom: none;
+        text-align: right;
+    }
+
+    .transportation-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #1f2937;
+        text-align: left;
+    }
+
+    .transportation-table td:first-child {
+        color: var(--brand-blue-dark);
+        font-weight: 600;
+    }
 }
 
-.specs-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 0 0 1.25rem 0;
-}
-
-.specs-grid {
+/* === The Building: photo + spec sheet === */
+.specs-layout {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.875rem;
+    grid-template-columns: 5fr 7fr;
+    gap: 1.5rem;
+    align-items: stretch;
 }
 
-.spec-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.875rem;
-    background-color: #f9fafb;
-    border-radius: 0.375rem;
-    border: 1px solid #e5e7eb;
+.specs-photo {
+    position: relative;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    min-height: 320px;
 }
 
-.spec-label {
-    color: #6b7280;
-    font-size: 0.75rem;
-    font-weight: 500;
+.specs-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.spec-value {
-    color: #1f2937;
-    font-size: 1rem;
+.specs-photo figcaption {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--brand-navy);
+    font-size: 0.85rem;
     font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+}
+
+.spec-sheet {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    padding: 1.75rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.spec-group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-navy);
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--brand-navy);
+}
+
+.spec-group-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #f8e9e5;
+    color: var(--brand-brick);
+}
+
+.spec-group-icon lucide-icon {
+    display: flex;
+}
+
+.spec-list {
+    margin: 0;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-row dt {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.spec-row dd {
+    margin: 0;
+    color: #1f2937;
+    font-weight: 600;
+    text-align: right;
+}
+
+@media (max-width: 1100px) {
+    .spec-sheet {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .specs-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .specs-photo {
+        min-height: 240px;
+    }
 }
 
 @media (max-width: 767px) {
-    .specs-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .spec-sheet {
+        padding: 1.25rem;
     }
 }
 
 /* === Gallery === */
 .container {
-    max-width: 1200px;
+    max-width: 80rem;
     margin: 0 auto;
-    padding: 1rem 1rem;
+    padding: 0 1rem;
 }
 
 .gallery-title {
@@ -167,9 +307,10 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    border: none;
     border-radius: 50%;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.35);
     color: white;
     cursor: pointer;
     opacity: 0;
@@ -179,12 +320,20 @@ body {
     justify-content: center;
 }
 
-.nav-arrow.visible {
+.nav-arrow.visible,
+.nav-arrow:focus-visible {
     opacity: 1;
 }
 
+/* Touch screens can't hover, so always show the arrows */
+@media (hover: none) {
+    .nav-arrow {
+        opacity: 1;
+    }
+}
+
 .nav-arrow:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .nav-arrow-left {
@@ -206,13 +355,15 @@ body {
     cursor: pointer;
     height: 8px;
     width: 8px;
+    border: none;
+    padding: 0;
     border-radius: 50%;
     background-color: #d1d5db;
     transition: background-color 0.3s ease;
 }
 
 .dot.active {
-    background-color: #2563eb;
+    background-color: var(--brand-blue-dark);
 }
 
 .thumbnails-grid {
@@ -232,6 +383,8 @@ body {
     height: 96px;
     background-size: cover;
     background-position: center;
+    border: none;
+    padding: 0;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -244,11 +397,12 @@ body {
     }
 }
 
-.thumbnail:hover {
+.thumbnail:hover,
+.thumbnail:focus-visible {
     opacity: 1;
 }
 
 .thumbnail.active {
     opacity: 1;
-    box-shadow: 0 0 0 2px #2563eb;
+    box-shadow: 0 0 0 2px var(--brand-blue-dark);
 }

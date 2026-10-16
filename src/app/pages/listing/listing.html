@@ -1,42 +1,35 @@
 <div class="listing-page">
-    <!-- Hero Section -->
-    <!-- <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <img [src]="heroImageUrl" alt="Suite J Reception Space" class="hero-image">
-        <div class="hero-content">
-            <h1 class="hero-title">1st Floor - Suite J</h1>
-            <p class="hero-subtitle">AVAILABLE NOW</p>
-        </div>
-    </section> -->
-
     <!-- Media Gallery Section -->
     <section class="media-gallery-section">
         <div class="container">
-            <h2 class="section-title">Tour Suite J</h2>
+            <span class="eyebrow">Photo &amp; Video Tour</span>
+            <h2 class="section-title">Take a look inside</h2>
             <div class="media-gallery">
                 @for (item of mediaGallery; track item.url) {
-                <div class="media-item" (click)="openLightbox(item)">
+                <button type="button" class="media-item" (click)="openLightbox(item)"
+                    [attr.aria-label]="(item.type === 'video' ? 'Play video: ' : 'View photo: ') + item.title">
                     @if (item.type === 'image') {
-                    <img [src]="item.url" [alt]="item.title" class="media-thumbnail">
+                    <img [src]="item.url" [alt]="item.title" class="media-thumbnail" loading="lazy">
                     }
                     @else if (item.type === 'video') {
-                    <video [src]="item.url + '#t=0.1'" class="media-thumbnail" preload="metadata" muted [attr.key]="currentIndex"></video>
+                    <video [src]="item.url + '#t=0.1'" class="media-thumbnail" preload="metadata" muted playsinline
+                        aria-hidden="true"></video>
                     }
 
                     @if (item.type === 'video') {
-                    <span class="video-badge">▶</span>
-                    <div class="media-overlay">
+                    <span class="video-badge" aria-hidden="true">▶</span>
+                    <span class="media-overlay" aria-hidden="true">
                         <span class="media-type">▶</span>
                         <span class="media-title">{{ item.title }}</span>
-                    </div>
+                    </span>
                     }
                     @else if(item.type === 'image') {
-                    <div class="media-overlay">
+                    <span class="media-overlay" aria-hidden="true">
                         <span class="media-type">🔍</span>
                         <span class="media-title">{{ item.title }}</span>
-                    </div>
+                    </span>
                     }
-                </div>
+                </button>
                 }
             </div>
         </div>
@@ -62,14 +55,14 @@
     <section class="highlights-section">
         <div class="container">
             <h2 class="section-title">Space Highlights</h2>
-            <div class="highlights-grid">
+            <ul class="highlights-grid" role="list">
                 @for(highlight of highlights; track highlight) {
-                <div class="highlight-item">
-                    <span class="highlight-icon">✓</span>
+                <li class="highlight-item">
+                    <span class="highlight-icon" aria-hidden="true">✓</span>
                     <span class="highlight-text">{{ highlight }}</span>
-                </div>
+                </li>
                 }
-            </div>
+            </ul>
         </div>
     </section>
 
@@ -81,23 +74,24 @@
     <!-- Lightbox Modal -->
     @if (lightboxOpen) {
     <div class="lightbox-modal" (click)="closeLightbox()">
-        <div class="lightbox-content" (click)="$event.stopPropagation()">
-            <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close">×</button>
-    
+        <div class="lightbox-content" role="dialog" aria-modal="true" [attr.aria-label]="selectedMedia?.title"
+            (click)="$event.stopPropagation()">
+            <button type="button" class="lightbox-close" (click)="closeLightbox()" aria-label="Close">×</button>
+
             <!-- Previous Arrow -->
-            <button class="lightbox-nav lightbox-prev" (click)="previousMedia()" aria-label="Previous">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button type="button" class="lightbox-nav lightbox-prev" (click)="previousMedia()" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
             </button>
-    
+
             <!-- Next Arrow -->
-            <button class="lightbox-nav lightbox-next" (click)="nextMedia()" aria-label="Next">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button type="button" class="lightbox-nav lightbox-next" (click)="nextMedia()" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
             </button>
-    
+
             <div class="lightbox-media">
                 @if (selectedMedia?.type === 'video') {
                 <video [src]="selectedMedia?.url" autoplay controls muted playsinline preload="auto" class="lightbox-video">
@@ -108,7 +102,7 @@
                 <img [src]="selectedMedia?.url" [alt]="selectedMedia?.title" class="lightbox-image">
                 }
             </div>
-            <p class="lightbox-title">{{ selectedMedia?.title }} ({{ currentIndex + 1 }} / {{ mediaGallery.length }})</p>
+            <p class="lightbox-title" aria-live="polite">{{ selectedMedia?.title }} ({{ currentIndex + 1 }} / {{ mediaGallery.length }})</p>
         </div>
     </div>
     }

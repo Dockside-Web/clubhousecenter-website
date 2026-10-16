@@ -17,11 +17,14 @@
   }
 }
 
-.nav-brand {
-  .logo {
-    height: 40px;
-    width: auto;
-  }
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 50px;
+  width: auto;
 }
 
 .nav-links {
@@ -38,8 +41,36 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: #003366;
+      color: var(--brand-blue-dark);
     }
+  }
+
+  /* Current page: brick underline, matching the logo */
+  li a.active {
+    color: var(--brand-navy);
+    text-decoration: underline;
+    text-decoration-color: var(--brand-brick);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+  }
+
+  li a.cta-button {
+    background: var(--brand-blue-dark);
+    color: white;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: var(--brand-blue-darker);
+      color: white;
+    }
+  }
+
+  li a.cta-button.active {
+    text-decoration: none;
+    background: var(--brand-navy);
   }
 }
 
@@ -49,7 +80,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
 
   span {
     width: 25px;
@@ -60,51 +91,52 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet: tighten spacing so the links fit next to the logo */
+@media (max-width: 1024px) and (min-width: 901px) {
   .nav-links {
-    display: none;
+    gap: 1.25rem;
+    margin-right: 0;
+    font-size: 0.95rem;
   }
+}
 
+/* Mobile: links become a dropdown panel under the header */
+@media (max-width: 900px) {
   .mobile-menu-toggle {
     display: flex;
   }
-}
 
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-container img {
-  height: 50px;
-  /* Adjust as needed */
-}
-
-.schedule-button {
-  background-color: #4E95D4;
-  color: white;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.schedule-button:hover {
-  background-color: #3d7fb9;
-}
-
-.nav-links {
-  display: flex;
-  /* desktop default */
-}
-
-@media (max-width: 768px) {
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    /* other mobile menu styles */
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    background: white;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e5e7eb;
+
+    li a {
+      display: block;
+      padding: 0.875rem 20px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    li a.active {
+      text-decoration: none;
+      box-shadow: inset 4px 0 0 var(--brand-brick);
+    }
+
+    li a.cta-button {
+      margin: 0.75rem 20px;
+      text-align: center;
+      border-bottom: none;
+      padding: 0.75rem 1rem;
+    }
   }
 
   .nav-links.open {

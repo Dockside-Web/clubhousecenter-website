@@ -91,7 +91,7 @@
 }
 
 .legal-link {
-    color: #008080;
+    color: var(--brand-blue-dark);
     text-decoration: none;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .legal-highlight {
-    color: #008080;
+    color: var(--brand-blue-dark);
 }
 
 /* Lists */
@@ -135,7 +135,7 @@
 /* Top Last-Updated Banner */
 .legal-banner {
     background-color: #f3f4f6;
-    border-left: 4px solid #008080;
+    border-left: 4px solid var(--brand-blue-dark);
     padding: 1rem;
 }
 

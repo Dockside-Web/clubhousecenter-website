@@ -2,35 +2,39 @@
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-section">
-        <h3 class="footer-title">Clubhouse Center</h3>
+        <h2 class="footer-title">
+          <a routerLink="/" class="footer-logo-link">
+            <img src="assets/images/logo-footer.svg" alt="Clubhouse Center" class="footer-logo" width="236" height="50" />
+          </a>
+        </h2>
         <p class="footer-description">
           A premier commercial real estate company specializing in office, retail, and warehouse industrial properties.
         </p>
       </div>
-      <div class="footer-section">
-        <h4 class="footer-subtitle">Navigation</h4>
+      <nav class="footer-section" aria-label="Footer navigation">
+        <h2 class="footer-subtitle">Navigation</h2>
         <ul class="footer-links">
-          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" class="footer-link">Home</a></li>
-          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" class="footer-link">Location</a></li>
-          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" class="footer-link">Property Overview</a></li>
-          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" class="footer-link">Space Available</a></li>
-          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" class="footer-link">Contact Us</a></li>
+          <li><a routerLink="/" class="footer-link">Home</a></li>
+          <li><a routerLink="/location" class="footer-link">Location</a></li>
+          <li><a routerLink="/property-overview" class="footer-link">Property Overview</a></li>
+          <li><a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/" target="_blank" rel="noopener" class="footer-link">Space Available</a></li>
+          <li><a routerLink="/contact" class="footer-link">Contact Us</a></li>
         </ul>
-      </div>
+      </nav>
       <div class="footer-section">
-        <h4 class="footer-subtitle">Contact Info</h4>
+        <h2 class="footer-subtitle">Contact Info</h2>
         <div class="footer-contact">
           <div class="contact-item">
-            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <p class="contact-text">
-              <a href="mailto:clubhousepropmd@msn.com" class="contact-link">clubhousepropmd@msn.com</a>
+              <a href="mailto:clubhousepropmd@msn.com" class="contact-link">clubhousepropmd&#64;msn.com</a>
             </p>
           </div>
           <div class="contact-item">
-            <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
@@ -39,16 +43,16 @@
             </p>
           </div>
           <div class="contact-item">
-            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <div>
+            <address class="contact-address">
               <p class="contact-text">300 Clubhouse Road</p>
               <p class="contact-text">Hunt Valley, MD 21031</p>
-            </div>
+            </address>
           </div>
         </div>
       </div>
@@ -57,13 +61,13 @@
       <p class="footer-copyright">
         © {{currentYear}} Clubhouse Center. All rights reserved.
       </p>
-      <nav class="footer-legal">
+      <nav class="footer-legal" aria-label="Legal">
         <ul class="footer-legal-links">
-          <li><a href="/legal/privacy-policy/" class="footer-legal-link">Privacy Policy</a></li>
+          <li><a routerLink="/legal/privacy-policy" class="footer-legal-link">Privacy Policy</a></li>
           <li class="separator" aria-hidden="true">|</li>
-          <li><a href="/legal/terms-of-service/" class="footer-legal-link">Terms of Service</a></li>
+          <li><a routerLink="/legal/terms-of-service" class="footer-legal-link">Terms of Service</a></li>
         </ul>
       </nav>
-      </div>
+    </div>
   </div>
 </footer>

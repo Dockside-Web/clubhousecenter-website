@@ -13,7 +13,8 @@ import {
   User,
   Warehouse,
   SendHorizontal,
-  ChevronDown
+  ChevronDown,
+  Zap
 } from 'lucide-angular';
 
 @NgModule({
@@ -31,7 +32,8 @@ import {
       User,
       Warehouse,
       SendHorizontal,
-      ChevronDown
+      ChevronDown,
+      Zap
     })
   ],
   exports: [LucideAngularModule]

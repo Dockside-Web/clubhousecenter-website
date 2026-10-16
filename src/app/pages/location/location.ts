@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CtaBandComponent } from '../../components/cta-band/cta-band';
 
 @Component({
   selector: 'app-location',
@@ -7,6 +8,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './location.html',
   imports: [
     RouterModule,
+    CtaBandComponent,
   ],
   styleUrls: ['./location.css']
 })

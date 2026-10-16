@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CtaBandComponent } from '../../components/cta-band/cta-band';
+import { LucideIconsModule } from '../../lucide.module';
 
 interface Image {
     id: number;
@@ -13,6 +15,8 @@ interface Image {
     standalone: true,
     imports: [
         RouterModule,
+        CtaBandComponent,
+        LucideIconsModule,
     ],
     templateUrl: './home.html',
     styleUrls: ['./home.css']
@@ -52,48 +56,31 @@ export class HomePage {
         },
     ];
 
-    specifications = [
+    // Spec sheet, grouped for the 'The Building' section
+    specGroups = [
         {
-          label: "Building Size",
-          value: "378,000 Sq. Ft."
+          title: 'Building',
+          icon: 'building',
+          items: [
+            { label: 'Building Size', value: '378,000 sq. ft.' },
+            { label: 'Lot Size', value: '20 acres' },
+            { label: 'Year Built', value: '1969' },
+            { label: 'Construction', value: 'Masonry' },
+            { label: 'Zoning', value: 'MLIM' },
+          ]
         },
         {
-          label: "Lot Size",
-          value: "20 AC"
-        },
-        {
-          label: "Year Built",
-          value: "1969"
-        },
-        {
-          label: "Construction",
-          value: "Masonry"
-        },
-        {
-          label: "Sprinkler System",
-          value: "Wet"
-        },
-        {
-          label: "Water & Sewer",
-          value: "City"
-        },
-        {
-          label: "Heating ",
-          value: "Gas"
-        },
-        {
-          label: "Gas",
-          value: "Natural"
-        },
-        {
-          label: "Power Supply",
-          value: "Amps: 6000; Volts: 277-480; Phase: 3"
-        },
-        {
-          label: "Zoning",
-          value: "MLIM"
+          title: 'Utilities & Systems',
+          icon: 'zap',
+          items: [
+            { label: 'Power', value: '6,000 A · 277–480 V · 3-phase' },
+            { label: 'Heating', value: 'Gas' },
+            { label: 'Gas', value: 'Natural' },
+            { label: 'Water & Sewer', value: 'City' },
+            { label: 'Sprinkler System', value: 'Wet' },
+          ]
         }
-    ]
+    ];
 
 
     currentIndex = 0;
@@ -103,49 +90,49 @@ export class HomePage {
     {
       id: 1,
       image: 'assets/images/Parking.jpg',
-      alt: 'Outside Warehouse Building with Parking Lot',
+      alt: 'Parking lot surrounding the Clubhouse Center building',
       title: 'Parking All Around the Building'
     },
     {
       id: 2,
       image: 'assets/images/WarehouseDoors.jpg',
-      alt: 'Aerial View of Property Across from I83 Highway',
+      alt: 'Warehouse loading doors at Clubhouse Center',
       title: 'Warehouse Doors'
     },
     {
       id: 3,
       image: 'assets/images/Flag.jpg',
-      alt: 'Outside Office Building with Flag',
+      alt: 'Office entrance at Clubhouse Center with American flag',
       title: 'Outside of Office Space'
     },
     {
       id: 4,
       image: 'assets/images/Sign.jpg',
-      alt: 'Outside Office Building showing a sign',
+      alt: 'Clubhouse Center sign at the parking lot entrance',
       title: 'Entrance to Parking Lot'
     },
     {
       id: 5,
       image: 'assets/images/Napa.jpg',
-      alt: 'Aerial View of Property Across from I83 Highway',
+      alt: 'Retail storefront space at Clubhouse Center',
       title: 'Outside of Retail Space'
     },
     {
       id: 6,
       image: 'assets/images/FrontDoor2.jpg',
-      alt: 'Aerial View of Property Across from I83 Highway',
+      alt: 'Entrance to additional office space',
       title: 'More Office Space'
     },
     {
       id: 7,
       image: 'assets/images/DroneFar.jpg',
-      alt: 'Aerial View of Property Across from I83 Highway',
+      alt: 'Aerial view of Clubhouse Center and the surrounding area',
       title: 'Aerial view of building and its surroundings'
     },
     {
       id: 8,
       image: 'assets/images/Parking2.jpg',
-      alt: 'Aerial View of Property Across from I83 Highway',
+      alt: 'Parking lot outside the office space',
       title: 'Office Space Parking'
     }
   ];

@@ -15,11 +15,15 @@ import { LucideIconsModule } from '../../lucide.module';
   styleUrls: ['./header.css']
 })
 export class HeaderComponent {
-  websiteLogo: string = 'assets/images/websiteLogo.webp';
+  websiteLogo: string = 'assets/images/logo.svg';
 
   isMobileMenuOpen = false;
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
   }
 }

@@ -1,10 +1,17 @@
 <section class="property-section" id="property-details">
     <div class="container">
-        <h2 class="section-title">Property Overview</h2>
+        <ul class="stats-grid" aria-label="Property at a glance">
+            @for (stat of stats; track stat.label) {
+            <li class="stat-card">
+                <span class="stat-value">{{ stat.value }}</span>
+                <span class="stat-label">{{ stat.label }}</span>
+            </li>
+            }
+        </ul>
 
         <div class="content-grid">
             <div class="info-section">
-                <h3 class="info-title">About Clubhouse Center</h3>
+                <h2 class="info-title">About Clubhouse Center</h2>
                 <p class="info-description">
                     Clubhouse Center is a premium office and industrial warehouse building offering
                     modern amenities and flexible floor plans for businesses of all
@@ -16,33 +23,36 @@
                     A variety of floor plans are currently available to accommodate your business needs.
                     Please click the button below to view our current availability and find the right
                     space for your organization.
-
-                    <span class="button-container">
-                        <a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/"
-                            target="_blank" class="btn-primary">View Available Spaces</a>
-                        <a href="/listing" class="btn-primary" style="margin-left: 15px;">View Suite J</a>
-
-                    </span>
                 </p>
+                <div class="button-container">
+                    <a href="https://www.loopnet.com/Listing/300-Clubhouse-Rd-Hunt-Valley-MD/28323828/"
+                        target="_blank" rel="noopener" class="btn-primary">View Available Spaces</a>
+                    <a routerLink="/listing" class="btn-secondary">View Suite J</a>
+                </div>
             </div>
             <div class="amenities-section">
-                <h3 class="amenities-title">Building Amenities</h3>
+                <h2 class="amenities-title">Building Amenities</h2>
                 <ul class="amenities-list">
                     <li>
-                        <lucide-icon name="lock" class="amenity-icon" /> 
+                        <span class="amenity-icon-wrap"><lucide-icon name="lock" class="amenity-icon" [size]="20" aria-hidden="true" /></span>
                         <span>24/7 Secure Building Access</span>
                     </li>
                     <li>
-                        <lucide-icon name="user-check" class="amenity-icon" /> 
+                        <span class="amenity-icon-wrap"><lucide-icon name="user-check" class="amenity-icon" [size]="20" aria-hidden="true" /></span>
                         <span>On-site Property Management</span>
                     </li>
-                    <li><lucide-icon name="fan" class="amenity-icon" /> 
+                    <li>
+                        <span class="amenity-icon-wrap"><lucide-icon name="fan" class="amenity-icon" [size]="20" aria-hidden="true" /></span>
                         <span>Energy-Efficient HVAC Systems</span>
                     </li>
-                    <li><lucide-icon name="circle-parking" class="amenity-icon" />
+                    <li>
+                        <span class="amenity-icon-wrap"><lucide-icon name="circle-parking" class="amenity-icon" [size]="20" aria-hidden="true" /></span>
                         <span>On-site Parking</span>
                     </li>
-                </ul>  </div>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <app-cta-band />
 </section>

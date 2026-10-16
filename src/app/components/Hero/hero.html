@@ -1,26 +1,64 @@
-<section class="hero-banner">
-    <div class="hero-container">
-        <div class="hero-content">
-            <div class="container">
-                <div class="content-wrapper">
-                    <div class="space-available">
-                        <span class="space-dot"></span>
-                        Space Available
-                    </div>
-                    <h1 class="hero-title">
-                        Clubhouse Center
-                    </h1>
-                    <p class="hero-subtitle">
-                        300 Clubhouse Road, Hunt Valley, MD 21031
-                    </p>
-                    <div class="hero-badges">
-                        <span class="hero-badge">Warehouse</span>
-                        <span class="hero-badge">Office</span>
-                        <span class="hero-badge">Retail</span>
-                        <span class="hero-badge">Flex Space</span>
-                    </div>
-                </div>
-            </div>
+@if (state().isHome) {
+<section class="hero hero-home">
+    <div class="hero-bg" aria-hidden="true">
+        <div class="hero-media"></div>
+        <div class="hero-shade"></div>
+    </div>
+
+    <div class="hero-inner">
+        <div class="space-available">
+            <span class="space-dot" aria-hidden="true"></span>
+            Space Available
         </div>
+        <h1 class="hero-title">Clubhouse Center</h1>
+        <p class="hero-tagline">
+            Office, warehouse, retail, and flex space in the heart of Hunt Valley, Maryland.
+        </p>
+        <div class="hero-actions">
+            <a routerLink="/contact" class="hero-btn hero-btn-primary">Schedule a Tour</a>
+            <a [href]="loopnetUrl" target="_blank" rel="noopener" class="hero-btn hero-btn-ghost">View Available Spaces</a>
+        </div>
+        <p class="hero-address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            300 Clubhouse Road, Hunt Valley, MD 21031
+        </p>
+    </div>
+
+    <div class="hero-facts-wrap">
+        <ul class="hero-facts" aria-label="Clubhouse Center at a glance">
+            @for (fact of facts; track fact.label) {
+            <li class="hero-fact">
+                <span class="hero-fact-value">{{ fact.value }}</span>
+                <span class="hero-fact-label">{{ fact.label }}</span>
+            </li>
+            }
+        </ul>
     </div>
 </section>
+} @else {
+<section class="hero hero-page">
+    <div class="hero-bg" aria-hidden="true">
+        <div class="hero-media"></div>
+        <div class="hero-shade"></div>
+    </div>
+
+    <div class="hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a routerLink="/">Home</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">{{ state().title }}</span>
+        </nav>
+        @if (state().eyebrow) {
+        <span class="hero-eyebrow">{{ state().eyebrow }}</span>
+        }
+        <h1 class="hero-page-title">{{ state().title }}</h1>
+        @if (state().subtitle) {
+        <p class="hero-page-subtitle">{{ state().subtitle }}</p>
+        }
+    </div>
+</section>
+}
